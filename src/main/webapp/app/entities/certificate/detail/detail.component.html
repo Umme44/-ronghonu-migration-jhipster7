@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .table-container {
+      margin-top: 20px;
+    }
+    .image-preview {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1 class="my-4">Certificate Details</h1>
+
+  <div class="table-container">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">PIN</th>
+        <th scope="col">Image Preview</th>
+        <th scope="col">Description</th>
+        <th scope="col">Enrollment Date</th>
+        <th scope="col">Completion Date</th>
+        <th scope="col">Expiry Date</th>
+        <th scope="col">Is Expired</th>
+        <th scope="col">Material Learned</th>
+      </tr>
+      </thead>
+      <tbody id="certificate-table-body">
+      <tr>
+        <td><input type="text" class="form-control" placeholder="Enter PIN" /></td>
+        <td>
+          <input type="file" class="form-control" onchange="previewImage(this)" />
+          <img class="image-preview" src="" alt="Preview" />
+        </td>
+        <td><input type="text" class="form-control" placeholder="Enter description" /></td>
+        <td><input type="date" class="form-control" /></td>
+        <td><input type="date" class="form-control" /></td>
+        <td><input type="date" class="form-control" /></td>
+        <td>
+          <select class="form-select">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-select" multiple>
+            <option value="course1">Course 1</option>
+            <option value="course2">Course 2</option>
+            <option value="course3">Course 3</option>
+          </select>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button class="btn btn-primary" onclick="saveDetails()">Save Details</button>
+
+  <div id="preview-container" class="mt-4">
+    <h3>Preview After Save:</h3>
+    <div id="saved-details"></div>
+  </div>
+</div>
+
+<script>
+  function previewImage(input) {
+    const file = input.files[0];
+    const preview = input.nextElementSibling;
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+      }
+      reader.readAsDataURL(file);
+    }
+  }
+
+  function saveDetails() {
+    const tableBody = document.getElementById('certificate-table-body');
+    const savedDetailsContainer = document.getElementById('saved-details');
+
+    const row = tableBody.querySelector('tr');
+    const pin = row.cells[0].querySelector('input').value;
+    const imageSrc = row.cells[1].querySelector('img').src;
+    const description = row.cells[2].querySelector('input').value;
+    const enrollDate = row.cells[3].querySelector('input').value;
+    const completionDate = row.cells[4].querySelector('input').value;
+    const expiryDate = row.cells[5].querySelector('input').value;
+    const isExpired = row.cells[6].querySelector('select').value;
+    const materials = Array.from(row.cells[7].querySelector('select').selectedOptions)
+      .map(option => option.text).join(', ');
+
+    savedDetailsContainer.innerHTML = `
+        <p><strong>PIN:</strong> ${pin}</p>
+        <p><strong>Description:</strong> ${description}</p>
+        <p><strong>Enrollment Date:</strong> ${enrollDate}</p>
+        <p><strong>Completion Date:</strong> ${completionDate}</p>
+        <p><strong>Expiry Date:</strong> ${expiryDate}</p>
+        <p><strong>Is Expired:</strong> ${isExpired}</p>
+        <p><strong>Material Learned:</strong> ${materials}</p>
+        <img class="image-preview" src="${imageSrc}" alt="Image Preview" />
+      `;
+  }
+</script>
+</body>
+</html>
+
+
+
