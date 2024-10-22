@@ -35,9 +35,15 @@ export class DetailComponent implements OnInit {
   }
 
   // You can also add a method to save details or update information
+  certificateDetailDetails: any;
+  certificateDetails: any;
   saveCertificateDetail(): void {
     console.log('Certificate details saved:', this.certificateDetail);
     // Here you can integrate a service to save the details
+  }
+
+  previousState() {
+
   }
 }
 

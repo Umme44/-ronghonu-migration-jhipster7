@@ -9,6 +9,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -34,6 +35,10 @@ public class Certificates implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator", sequenceName = "sequence_generator")
     @Column(name = "id")
     private Long id;
+
+    @NotNull
+    @Column(name = "pin", nullable = false, unique = true)
+    private String pin;
 
 
     @Setter
@@ -63,8 +68,6 @@ public class Certificates implements Serializable {
     private LocalDate completionDate;
 
 
-
-
     @Setter
     @Getter
     @Column(name = "expirationDate")
@@ -75,21 +78,78 @@ public class Certificates implements Serializable {
     @Column(name = "isExpired")
     private Boolean isExpired;
 
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Certificates that = (Certificates) o;
-        return Objects.equals(id, that.id) && Objects.equals(certificateImage, that.certificateImage) && Objects.equals(description, that.description) && Objects.equals(materialsLearned, that.materialsLearned) && Objects.equals(enrollmentDate, that.enrollmentDate) && Objects.equals(completionDate, that.completionDate) && Objects.equals(expirationDate, that.expirationDate) && Objects.equals(isExpired, that.isExpired);
+    public Long getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, certificateImage, description, materialsLearned, enrollmentDate, completionDate, expirationDate, isExpired);
+    public void setId(Long id) {
+        this.id = id;
     }
 
+    public @NotNull String getPin() {
+        return pin;
+    }
 
+    public void setPin(@NotNull String pin) {
+        this.pin = pin;
+    }
 
+    public String getCertificateImage() {
+        return certificateImage;
+    }
+
+    public void setCertificateImage(String certificateImage) {
+        this.certificateImage = certificateImage;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public MaterialsLearned getMaterialsLearned() {
+        return materialsLearned;
+    }
+
+    public void setMaterialsLearned(MaterialsLearned materialsLearned) {
+        this.materialsLearned = materialsLearned;
+    }
+
+    public LocalDate getEnrollmentDate() {
+        return enrollmentDate;
+    }
+
+    public void setEnrollmentDate(LocalDate enrollmentDate) {
+        this.enrollmentDate = enrollmentDate;
+    }
+
+    public LocalDate getCompletionDate() {
+        return completionDate;
+    }
+
+    public void setCompletionDate(LocalDate completionDate) {
+        this.completionDate = completionDate;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public Boolean getExpired() {
+        return isExpired;
+    }
+
+    public void setExpired(Boolean expired) {
+        isExpired = expired;
+    }
 }
+
+
+

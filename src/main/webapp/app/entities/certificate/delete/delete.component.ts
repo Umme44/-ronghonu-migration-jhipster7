@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./delete.component.scss']
 })
 export class DeleteComponent implements OnInit {
+  certificateDetails: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  confirmDelete(param: string | ArrayBufferView | ArrayBuffer | number) {
+
+  }
+
+  cancel() {
+
+  }
+}
+
+export class CertificateDelete {
 }

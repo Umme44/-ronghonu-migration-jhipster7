@@ -36,9 +36,32 @@ export class ListComponent implements OnInit {
   }
 
   // You can also add a method to save details or update information
+  certificateDetails: any;
+  predicate: any;
+  ascending: boolean;
+  isLoading: any;
+  page: number;
+  links: number;
+  trackId: any;
   saveCertificateDetail(): void {
     console.log('Certificate details saved:', this.certificateDetail);
     // Here you can integrate a service to save the details
+  }
+
+  navigateToWithComponentValues() {
+
+  }
+
+  load() {
+
+  }
+
+  loadPage(param: any) {
+
+  }
+
+  delete(educationDetails) {
+
   }
 }
 

@@ -6,12 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./update.component.scss']
 })
 export class UpdateComponent implements OnInit {
+  editForm: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  save() {
+
+  }
+
+  changeCertificate($event: any) {
+
+  }
 }
 
 export class CertificateUpdate {

@@ -7,6 +7,7 @@ import { ApplicationConfigService } from 'app/core/config/application-config.ser
 import { createRequestOption } from 'app/core/request/request-util';
 import { ICertificateDetails } from '../certificate.model';
 import { IReferences } from '../../references/references.model';
+import {IEducationDetails} from "../../education-details/education-details.model";
 //import {ICertificateDetails} from "../../certificate/certificate.model";
 
 export type EntityResponseType = HttpResponse<ICertificateDetails>;
@@ -22,8 +23,20 @@ export class CertificateService {
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) { }
 
-  create(educationDetails: ICertificateDetails): Observable<EntityResponseType> {
-    return this.http.post<ICertificateDetails>(this.resourceUrl, educationDetails, { observe: 'response' });
+  create(certificateDetails: ICertificateDetails): Observable<EntityResponseType> {
+    return this.http.post<ICertificateDetails>(this.resourceUrl, certificateDetails, { observe: 'response' });
+  }
+
+  update(certificateDetails: ICertificateDetails): Observable<EntityResponseType> {
+    return this.http.put<ICertificateDetails>(this.resourceUrl, certificateDetails, { observe: 'response' });
+  }
+
+  delete(id: number): Observable<HttpResponse<{}>> {
+    return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
+  }
+
+  find(id: number): Observable<EntityResponseType> {
+    return this.http.get<ICertificateDetails>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }
 
