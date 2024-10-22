@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'app/shared/shared.module';
 import {BitsHrPayrollHeaderModule} from "../../layouts/header/header.module";
-import { ListComponent } from './list/list.component';
+import { ListComponent } from "./list/list.component";
 import { DeleteComponent } from './delete/delete.component';
 import { DetailComponent } from './detail/detail.component';
 import { UpdateComponent } from './update/update.component';
@@ -14,12 +14,13 @@ import {
 
 
 @NgModule({
-  imports: [SharedModule, BitsHrPayrollHeaderModule, CertificateRoutingModule],
+  imports: [SharedModule, BitsHrPayrollHeaderModule, CertificateRoutingModule, BitsHrPayrollSimpleSelectEmployeeFormModule],
   declarations: [
-    ListComponent,
     DeleteComponent,
     DetailComponent,
     UpdateComponent,
+    ListComponent,
+
   ],
 })
 export class CertificateModule {}

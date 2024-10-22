@@ -23,21 +23,13 @@ export class CertificateService {
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) { }
 
-  create(certificateDetails: ICertificateDetails): Observable<EntityResponseType> {
-    return this.http.post<ICertificateDetails>(this.resourceUrl, certificateDetails, { observe: 'response' });
-  }
 
-  update(certificateDetails: ICertificateDetails): Observable<EntityResponseType> {
-    return this.http.put<ICertificateDetails>(this.resourceUrl, certificateDetails, { observe: 'response' });
-  }
 
-  delete(id: number): Observable<HttpResponse<{}>> {
-    return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
-  }
 
-  find(id: number): Observable<EntityResponseType> {
-    return this.http.get<ICertificateDetails>(`${this.resourceUrl}/${id}`, { observe: 'response' });
-  }
+
+
+
+
 }
 
 
