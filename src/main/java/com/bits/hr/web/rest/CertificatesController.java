@@ -38,8 +38,8 @@ public class CertificatesController {
 
     //Get certificate by id
     @GetMapping("/{id}")
-    public ResponseEntity<Certificate> getCertificateById(@PathVariable Long id) {
-        Optional<Certificate> certificate = certificatesService.findById(id);
+    public ResponseEntity<Certificates> getCertificateById(@PathVariable Long id) {
+        Optional<Certificates> certificate = certificatesService.findById(id);
         return certificate.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
@@ -64,12 +64,7 @@ public class CertificatesController {
         Certificates certificate = certificatesService.updateCertificate(id, updatedCertificate);
         return certificate != null ? ResponseEntity.ok(certificate) : ResponseEntity.notFound().build();
     }
-    // View a certificate by ID
-    @GetMapping("/{id}")
-    public ResponseEntity<Certificates> getCertificateById(@PathVariable Long id) {
-        Optional<Certificates> certificate = certificatesService.getCertificateById(id);
-        return certificate.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
+
 
 
 

@@ -21,7 +21,13 @@ public class CertificatesService{
             return certificatesRepository.findById(id);
         }
 
-        // Create a new certificate
+        //find BY id
+        public Optional<Certificates> findById(Long id) {
+            return certificatesRepository.findById(id);
+        }
+
+        //create new certificate
+
         public Certificates saveCertificate(Certificates certificate) {
             return certificatesRepository.save(certificate);
         }
@@ -33,18 +39,22 @@ public class CertificatesService{
 
         // Update an existing certificate by ID
         public Certificates updateCertificate(Long id, Certificates updatedCertificate) {
-            return certificatesRepository.findById(id).map(existingCertificate -> {
-                existingCertificate.setPin(updatedCertificate.getPin());
-                existingCertificate.setImageUrl(updatedCertificate.getImageUrl());
-                existingCertificate.setDescription(updatedCertificate.getDescription());
-                existingCertificate.setMaterialsLearned(updatedCertificate.getMaterialsLearned());
-                existingCertificate.setEnrollmentDate(updatedCertificate.getEnrollmentDate());
-                existingCertificate.setCompletionDate(updatedCertificate.getCompletionDate());
-                existingCertificate.setExpirationDate(updatedCertificate.getExpirationDate());
-                existingCertificate.setExpired(updatedCertificate.getExpired());
-                return certificatesRepository.save(existingCertificate);
+            return certificatesRepository.findById(id).map(certificate -> {
+                certificate.setPin(updatedCertificate.getPin());
+                certificate.setImageUrl(updatedCertificate.getImageUrl());
+                certificate.setDescription(updatedCertificate.getDescription());
+                certificate.setMaterialsLearned(updatedCertificate.getMaterialsLearned());
+                certificate.setEnrollmentDate(updatedCertificate.getEnrollmentDate());
+                certificate.setCompletionDate(updatedCertificate.getCompletionDate());
+                return certificatesRepository.save(certificate);
             }).orElse(null);
         }
+
+        public List<Certificates> findAllCertificates() {
+            return certificatesRepository.findAll();
+        }
+
+
 
 
 
