@@ -1,13 +1,36 @@
 CREATE TABLE certificates (
                               id BIGINT PRIMARY KEY,
-                              certificate_image VARCHAR(255),
+                              pin VARCHAR(255),
+                              imageUrl VARCHAR(255),
                               description TEXT,
-                              materials_learned VARCHAR(255), -- Enum stored as string
-                              enrollment_date DATE,
-                              completion_date DATE,
-                              expiration_date DATE,
-                              is_expired BOOLEAN
+                              materialsLearned VARCHAR(255), -- Enum stored as string
+                              enrollmentDate DATE,
+                              completionDate DATE,
+                              expirationDate DATE,
+                              isExpired BOOLEAN
 );
 
-ALTER TABLE certificates ADD CONSTRAINT chk_materials_learned
-CHECK (materials_learned IN ('JAVA', 'C_PLUS_PLUS', 'SQL'));
+select * from certificates;
+
+INSERT INTO certificates (
+    id,
+    pin,
+    imageUrl,
+    description,
+    materialsLearned,
+    enrollmentDate,
+    completionDate,
+    expirationDate,
+    isExpired
+) VALUES (
+             3,  -- id (if using a sequence, this can be omitted)
+             '123',  -- pin
+             'http://example.com/image.jpg',  -- imageUrl
+             'This is a certificate description.',  -- description
+             'sql',  -- materialsLearned (replace with your actual enum value)
+             '2024-01-01',  -- enrollmentDate (YYYY-MM-DD format)
+             '2024-06-01',  -- completionDate (YYYY-MM-DD format)
+             '2025-01-01',  -- expirationDate (YYYY-MM-DD format)
+             FALSE  -- isExpired (use TRUE or FALSE)
+         );
+

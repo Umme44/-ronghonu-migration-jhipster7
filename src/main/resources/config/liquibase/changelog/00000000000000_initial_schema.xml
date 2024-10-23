@@ -10,6 +10,10 @@
         <createSequence sequenceName="sequence_generator" startValue="1050" incrementBy="50"/>
     </changeSet>
 
+    <!-- add this line for   ERROR: relation "jhi_user" already exists  -->
+
+
+
     <!--
         JHipster core tables.
         The initial schema has the '00000000000001' id, so that it is over-written if we re-generate it.
