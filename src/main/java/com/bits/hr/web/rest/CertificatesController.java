@@ -5,6 +5,7 @@ import com.bits.hr.domain.Certificates;
 import com.bits.hr.repository.CertificatesRepository;
 import com.bits.hr.service.CertificatesService;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,28 +14,21 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/employee-mgt/")
+@RequestMapping("/api/employee-mgt/certificate")
 public class CertificatesController {
 
     @Autowired
-    private final CertificatesService certificatesService;
+    private CertificatesService certificatesService;
 
     @Autowired
     private CertificatesRepository certificatesRepository;
 
-
-
-    public CertificatesController(CertificatesService certificatesService) {
-        this.certificatesService = certificatesService;
-    }
-
-
     // Get all employee Certificate
-    /*@GetMapping("/certificates")
+    @GetMapping()
     public List<Certificates> getAllCertificate(){
         return certificatesRepository.findAll();
 
-    }*/
+    }
 
     //Get certificate by id
     @GetMapping("/{id}")
@@ -44,7 +38,7 @@ public class CertificatesController {
     }
 
     // Create a new certificate
-    @PostMapping
+    @PostMapping()
     public Certificates createCertificate(@RequestBody Certificates certificate) {
         return certificatesService.saveCertificate(certificate);
     }

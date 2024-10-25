@@ -18,11 +18,8 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "certificates")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-
 public class Certificates implements Serializable {
     private static final long serialVersionUID = 1L;
-
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")

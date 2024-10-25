@@ -34,3 +34,4 @@ INSERT INTO certificates (
              FALSE  -- isExpired (use TRUE or FALSE)
          );
 
+

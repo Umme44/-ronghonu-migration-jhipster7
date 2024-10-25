@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { UserRouteAccessService } from '../core/auth/user-route-access.service';
 import { AttendanceTimeSheetAdminComponent } from '../attendance-management-system/ats/attendance-time-sheet-admin/attendance-time-sheet-admin.component';
 import { ConfigCustomModule } from './config-custom/config-custom.module';
+import {CertificateModule} from "./certificate/certificate.module";
 
 @NgModule({
   imports: [
@@ -504,12 +505,14 @@ import { ConfigCustomModule } from './config-custom/config-custom.module';
         data: { pageTitle: 'bitsHrPayrollApp.employee.home.title' },
         loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule),
       },
-
       {
         path: 'certificate',
         data: { pageTitle: 'bitsHrPayrollApp.employee.home.title' },
         loadChildren: () => import('./certificate/certificate.module').then(m => m.CertificateModule),
-      }
+      },
+
+
+
 
 
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */

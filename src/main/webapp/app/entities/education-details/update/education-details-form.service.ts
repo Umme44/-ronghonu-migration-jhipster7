@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
 import { IEducationDetails, NewEducationDetails } from '../education-details.model';
 import { CustomValidator } from '../../../validators/custom-validator';
 
