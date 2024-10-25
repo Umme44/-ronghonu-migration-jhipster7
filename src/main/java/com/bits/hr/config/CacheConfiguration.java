@@ -144,6 +144,7 @@ public class CacheConfiguration {
             createCache(cm, com.bits.hr.domain.Location.class.getName());
             createCache(cm, com.bits.hr.domain.EmployeeDocument.class.getName());
             createCache(cm, com.bits.hr.domain.RecruitmentRequisitionBudget.class.getName());
+            createCache(cm, com.bits.hr.domain.Certificatev2.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

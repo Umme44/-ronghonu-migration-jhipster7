@@ -1,0 +1,16 @@
+{
+  "changelogDate": "20241025105624",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "pin",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "name": "Certificatev2",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

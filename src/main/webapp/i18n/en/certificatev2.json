@@ -1,0 +1,24 @@
+{
+  "bitsHrPayrollApp": {
+    "certificatev2": {
+      "home": {
+        "title": "Certificatev 2 S",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Certificatev 2",
+        "createOrEditLabel": "Create or edit a Certificatev 2",
+        "notFound": "No Certificatev 2 S found"
+      },
+      "created": "A new Certificatev 2 is created with identifier {{ param }}",
+      "updated": "A Certificatev 2 is updated with identifier {{ param }}",
+      "deleted": "A Certificatev 2 is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Certificatev 2 {{ id }}?"
+      },
+      "detail": {
+        "title": "Certificatev 2"
+      },
+      "id": "ID",
+      "pin": "Pin"
+    }
+  }
+}

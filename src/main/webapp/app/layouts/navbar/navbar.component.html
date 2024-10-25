@@ -273,9 +273,6 @@
                 </a>
               </li>
 
-
-
-
               <li *ngIf="false">
                 <a (click)="collapseNavbar()" class="dropdown-item" routerLink="">
                   <span>Employment Histories</span>
@@ -405,7 +402,8 @@
               </li>
               <li>
                 <a (click)="collapseNavbar()" class="dropdown-item" routerLink="recruitment-requisition-budget">
-                  <span>Recruitment Requisition Budget
+                  <span
+                    >Recruitment Requisition Budget
                     <span class="badge rounded-pill bg-secondary text-white">Admin</span>
                   </span>
                 </a>
@@ -525,15 +523,15 @@
                 </a>
               </li>
 
-<!--              <li>-->
-<!--                <hr class="dropdown-divider" />-->
-<!--              </li>-->
+              <!--              <li>-->
+              <!--                <hr class="dropdown-divider" />-->
+              <!--              </li>-->
 
-<!--              <li>-->
-<!--                <a (click)="collapseNavbar()" class="dropdown-item" routerLink="salary-certificate">-->
-<!--                  <span>Salary Certificate</span>-->
-<!--                </a>-->
-<!--              </li>-->
+              <!--              <li>-->
+              <!--                <a (click)="collapseNavbar()" class="dropdown-item" routerLink="salary-certificate">-->
+              <!--                  <span>Salary Certificate</span>-->
+              <!--                </a>-->
+              <!--              </li>-->
 
               <li>
                 <hr class="dropdown-divider" />
@@ -1996,6 +1994,18 @@
               >
                 <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.entities.recruitmentRequisitionBudget">Recruitment Requisition Budget</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="certificatev-2"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                (click)="collapseNavbar()"
+              >
+                <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                <span jhiTranslate="global.menu.entities.certificatev2">Certificatev 2</span>
               </a>
             </li>
             <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->

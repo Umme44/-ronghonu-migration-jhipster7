@@ -112,14 +112,15 @@
       "Location",
       "FailedLoginAttempt",
       "EmployeeDocument",
-      "RecruitmentRequisitionBudget"
+      "RecruitmentRequisitionBudget",
+      "Certificatev2"
     ],
     "entitySuffix": "",
     "jhiPrefix": "jhi",
     "jhipsterVersion": "7.9.3",
     "jwtSecretKey": "ZmMxNTFjNGNlOWEzYTA0NWRiNGQ0YzRlOWEzOWI1YzJmOTk1YmI2NGRlMWU3MjBkYTRlOGM4YjA2ZDkzM2YyOGMxMTNmZDY2NzU2ZGE4ZWE1N2ZmY2NjMTE2NmVjYTU0NWJmODU0YzgwNDNmN2VmMjg5YmY0MWU3NjQ3YWYwNzE=",
     "languages": ["en", "bn"],
-    "lastLiquibaseTimestamp": 1700995098000,
+    "lastLiquibaseTimestamp": 1729853784000,
     "messageBroker": false,
     "microfrontend": false,
     "microfrontends": [],

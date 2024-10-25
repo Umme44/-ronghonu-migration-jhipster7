@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { UserRouteAccessService } from '../core/auth/user-route-access.service';
 import { AttendanceTimeSheetAdminComponent } from '../attendance-management-system/ats/attendance-time-sheet-admin/attendance-time-sheet-admin.component';
 import { ConfigCustomModule } from './config-custom/config-custom.module';
-import {CertificateModule} from "./certificate/certificate.module";
+import { CertificateModule } from './certificate/certificate.module';
 
 @NgModule({
   imports: [
@@ -338,9 +338,9 @@ import {CertificateModule} from "./certificate/certificate.module";
         loadChildren: () => import('./user-feedback/user-feedback.module').then(m => m.UserFeedbackModule),
       },
       //{
-        //path: 'area',
-        //data: { pageTitle: 'bitsHrPayrollApp.area.home.title' },
-        //loadChildren: () => import('./area/area.module').then(m => m.AreaModule),
+      //path: 'area',
+      //data: { pageTitle: 'bitsHrPayrollApp.area.home.title' },
+      //loadChildren: () => import('./area/area.module').then(m => m.AreaModule),
       //},//
       {
         path: 'arrear-payment',
@@ -511,10 +511,11 @@ import {CertificateModule} from "./certificate/certificate.module";
         loadChildren: () => import('./certificate/certificate.module').then(m => m.CertificateModule),
       },
 
-
-
-
-
+      {
+        path: 'certificatev-2',
+        data: { pageTitle: 'bitsHrPayrollApp.certificatev2.home.title' },
+        loadChildren: () => import('./certificatev-2/certificatev-2.module').then(m => m.Certificatev2Module),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

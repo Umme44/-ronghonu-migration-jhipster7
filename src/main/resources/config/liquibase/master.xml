@@ -110,6 +110,7 @@
     <include file="config/liquibase/changelog/20231126103818_added_entity_FailedLoginAttempt.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20231207065449_added_entity_EmployeeDocument.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20231228103309_added_entity_RecruitmentRequisitionBudget.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20241025105624_added_entity_Certificatev2.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20230118042624_added_entity_constraints_UnitOfMeasurement.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220606073229_added_entity_constraints_Building.xml" relativeToChangelogFile="false"/>

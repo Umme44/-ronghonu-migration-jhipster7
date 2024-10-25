@@ -129,6 +129,7 @@
         "attendanceSyncCache": "Attendance Sync Cache",
         "employeeDocument": "Employee Document",
         "recruitmentRequisitionBudget": "Recruitment Requisition Budget",
+        "certificatev2": "Certificatev 2",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
