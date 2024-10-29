@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CertificatesRepository extends JpaRepository<Certificates, Long> {
-    Certificates findByPin(String pin);
-    //Certificate findByPin(String pin);
+
 
 }

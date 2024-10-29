@@ -32,20 +32,20 @@ public class Certificates implements Serializable {
     private String pin;
 
 
-    @Column(name = "imageUrl")
+    @Column(name = "image_Url")
     private String imageUrl;
 
     @Column(name = "description")
     private String description;
 
 
-    @Column(name = "materialsLearned")
+    @Column(name = "materials_learned")
     private String materialsLearned;
 
-    @Column(name = "enrollmentDate")
+    @Column(name = "enrollment_Date")
     private LocalDate enrollmentDate;
 
-    @Column(name = "completionDate")
+    @Column(name = "completion_Date")
     private LocalDate completionDate;
 
     @Override
@@ -62,7 +62,7 @@ public class Certificates implements Serializable {
             '}';
     }
 
-    @Column(name = "expirationDate")
+    @Column(name = "expiration_Date")
     private LocalDate expirationDate;
 
     public Long getId() {
@@ -139,7 +139,7 @@ public class Certificates implements Serializable {
         isExpired = expired;
     }
 
-    @Column(name = "isExpired")
+    @Column(name = "is_Expired")
     private Boolean isExpired;
 
 

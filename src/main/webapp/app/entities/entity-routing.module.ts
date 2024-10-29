@@ -511,11 +511,11 @@ import { CertificateModule } from './certificate/certificate.module';
         loadChildren: () => import('./certificate/certificate.module').then(m => m.CertificateModule),
       },
 
-      {
-        path: 'certificatev-2',
-        data: { pageTitle: 'bitsHrPayrollApp.certificatev2.home.title' },
-        loadChildren: () => import('./certificatev-2/certificatev-2.module').then(m => m.Certificatev2Module),
-      },
+      // {
+      //   path: 'certificatev-2',
+      //   data: { pageTitle: 'bitsHrPayrollApp.certificatev2.home.title' },
+      //   loadChildren: () => import('./certificatev-2/certificatev-2.module').then(m => m.Certificatev2Module),
+      // },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

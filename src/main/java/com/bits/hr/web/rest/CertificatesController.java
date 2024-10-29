@@ -10,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/employee-mgt/certificate")
+@RequestMapping("/api/employee-mgt")
 public class CertificatesController {
 
     @Autowired
@@ -24,39 +26,42 @@ public class CertificatesController {
     private CertificatesRepository certificatesRepository;
 
     // Get all employee Certificate
-    @GetMapping()
-    public List<Certificates> getAllCertificate(){
-        return certificatesRepository.findAll();
-
+    @GetMapping("/certificates")
+    public List<Certificates> getAllCertificates() {
+        return certificatesService.getAllCertificates();
     }
 
     //Get certificate by id
-    @GetMapping("/{id}")
+    @GetMapping("/certificates/{id}")
     public ResponseEntity<Certificates> getCertificateById(@PathVariable Long id) {
-        Optional<Certificates> certificate = certificatesService.findById(id);
-        return certificate.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        Certificates certificates = certificatesService.getCertificateById(id);
+        return ResponseEntity.ok(certificates);
     }
 
+
     // Create a new certificate
-    @PostMapping()
-    public Certificates createCertificate(@RequestBody Certificates certificate) {
-        return certificatesService.saveCertificate(certificate);
+    @PostMapping("/create_certificates")
+    public ResponseEntity<Certificates> createCertificate(@RequestBody Certificates certificate) {
+        Certificates createdCertificate = certificatesService.createCertificate(certificate);
+        return ResponseEntity.status(201).body(createdCertificate);
     }
 
 
     // Delete a certificate by ID
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCertificate(@PathVariable Long id) {
+    @DeleteMapping("/certificates/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteCertificate(@PathVariable Long id) {
         certificatesService.deleteCertificate(id);
-        return ResponseEntity.noContent().build();
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
     }
 
-    // Update an existing certificate by ID
-    @PutMapping("/{id}")
-    public ResponseEntity<Certificates> updateCertificate(
-        @PathVariable Long id, @RequestBody Certificates updatedCertificate) {
-        Certificates certificate = certificatesService.updateCertificate(id, updatedCertificate);
-        return certificate != null ? ResponseEntity.ok(certificate) : ResponseEntity.notFound().build();
+
+
+    @PutMapping("/certificates/{id}")
+    public ResponseEntity<Certificates> updateCertificates(@PathVariable Long id, @RequestBody Certificates certificatesDetails) {
+        Certificates updatedCertificate = certificatesService.updateCertificates(id, certificatesDetails);
+        return ResponseEntity.ok(updatedCertificate);
     }
 
 

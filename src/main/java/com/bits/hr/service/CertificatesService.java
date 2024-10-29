@@ -16,65 +16,53 @@ public class CertificatesService{
         @Autowired
         private CertificatesRepository certificatesRepository;
 
-        // Get certificate by ID
-        public Optional<Certificates> getCertificateById(Long id) {
-            return certificatesRepository.findById(id);
-        }
 
-        //find BY id
-        public Optional<Certificates> findById(Long id) {
-            return certificatesRepository.findById(id);
-        }
+//        @Autowired
+//        private  ImageService imageService;
 
-        //create new certificate
-
-        public Certificates saveCertificate(Certificates certificate) {
-            return certificatesRepository.save(certificate);
-        }
-
-        // Delete a certificate by ID
-        public void deleteCertificate(Long id) {
-            certificatesRepository.deleteById(id);
-        }
-
-        // Update an existing certificate by ID
-        public Certificates updateCertificate(Long id, Certificates updatedCertificate) {
-            return certificatesRepository.findById(id).map(certificate -> {
-                certificate.setPin(updatedCertificate.getPin());
-                certificate.setImageUrl(updatedCertificate.getImageUrl());
-                certificate.setDescription(updatedCertificate.getDescription());
-                certificate.setMaterialsLearned(updatedCertificate.getMaterialsLearned());
-                certificate.setEnrollmentDate(updatedCertificate.getEnrollmentDate());
-                certificate.setCompletionDate(updatedCertificate.getCompletionDate());
-                return certificatesRepository.save(certificate);
-            }).orElse(null);
-        }
-
-        public List<Certificates> findAllCertificates() {
+        //get all certificates
+        public List<Certificates> getAllCertificates() {
             return certificatesRepository.findAll();
         }
 
+        // get certificates by id
+        public Certificates getCertificateById(Long id) {
+            return certificatesRepository.findById(id)
+                .orElseThrow();
+        }
 
+        //create new certificates
+        public Certificates createCertificate(Certificates certificate) {
+            // You can add any additional business logic here if needed
+            return certificatesRepository.save(certificate);
+        }
 
+        //Delete certificates
+        public void deleteCertificate(Long id) {
+            Certificates certificates = certificatesRepository.findById(id)
+                .orElseThrow();
+            certificatesRepository.delete(certificates);
+        }
 
+        //Update certificates
+        public Certificates updateCertificates(Long id, Certificates certificatesDetails) {
+            Certificates existingCertificate = certificatesRepository.findById(id)
+                .orElseThrow();
 
+            // Update fields
+            existingCertificate.setDescription(certificatesDetails.getDescription());
+            existingCertificate.setCompletionDate(certificatesDetails.getCompletionDate());
+            existingCertificate.setEnrollmentDate(certificatesDetails.getEnrollmentDate());
+            existingCertificate.setImageUrl(certificatesDetails.getImageUrl());
+            existingCertificate.setPin(certificatesDetails.getPin());
+            existingCertificate.setExpired(certificatesDetails.getExpired());
+            existingCertificate.setExpirationDate(certificatesDetails.getExpirationDate());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            return certificatesRepository.save(existingCertificate);
+        }
 
 
 }
+
 
 
